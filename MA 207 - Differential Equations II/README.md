@@ -1,7 +1,7 @@
 MA 207 - Differential Equations II
 ========
 
-Author:Manish Goregaokar
+**Author:Manish Goregaokar**
 
 Higher level Differential equations course.
 

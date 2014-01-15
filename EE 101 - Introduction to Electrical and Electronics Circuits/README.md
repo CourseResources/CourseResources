@@ -1,7 +1,7 @@
-EE 101 - Introduction to Electrical and Electronics Circuits
+EE 101 - Intro to Electrical Circuits and Electronics
 ========
 
-Author:Manish Goregaokar
+**Author:Manish Goregaokar**
 
 Basic EE course, about electrical circuits, transistors, MOSFETs including semiconductor physics and engineering, and various other topics like opamps
 
