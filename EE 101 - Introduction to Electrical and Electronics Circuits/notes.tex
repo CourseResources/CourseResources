@@ -1,0 +1,69 @@
+% LaTeX file for a 1 page document
+\documentclass[10pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+%\usepackage{physymb}
+
+
+%%cop
+
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\newcommand{\Hrule}{\rule{\linewidth}{0.3mm}}
+
+\makeatletter% since there's an at-sign (@) in the command name
+\renewcommand{\@maketitle}{%
+  \parindent=0pt% don't indent paragraphs in the title block
+  \centering
+  {\Large \bfseries\textsc{\@title}}
+  \HRule\par%
+  \textit{\@author \hfill \@date}
+  \par
+}
+\makeatother% resets the meaning of the at-sign (@)
+
+
+%%/cop
+
+\title{EE Formula sheet}
+
+\author{Manish}
+
+\begin{document}
+\maketitle
+\begin{itemize}
+\item $\frac1\rho=\sigma=\frac{q^2n\tau}{m*}$; Fermi distribution:$f(E)=\frac{1}{e^\frac{E-E_F}{kT} +1}$
+\item When $E_F < E_C- 3kT$, $n=N_Ee^{-\frac{E_C-E_F}{kT}}; N_C=2\left(\frac{2\pi m_n*kT}{h^2}\right)^\frac32$.
+\item When $ E_F > E_V + 3kT$, $p=N_Ve^{-\frac{E_F-E_V}{kT}}; N_V=2\left(\frac{2\pi m_p*kT}{h^2}\right)^\frac32$. $N_C,N_V$ are effective DOSes in the two bands.
+\item Drift velocity=$\mu\vec E$, $\mu=\frac{e\tau}{m*}$, $J=-env=\sigma E$\\
+\item Where $\sigma=e(n\mu_e+p\mu_h)$
+\item Diffusion: $\Phi (flux) =-Dd_x\eta$ thus $J_{p,diff}=-eDd_xp$, same for $n$.
+\item $J_n=en(x)\mu_nV(x) +ED_n\frac{\mathrm dn(x)}{\mathrm dx}$, same for $p$ with opposite sign for second term.
+\item Einstein: $\frac{D_n}{\mu_n}=\frac{kT}{q}$ at equilibrium for non uniform doping
+\item $E_F=E_i+kT\ln \frac{n_0}{n_i}$. Same formula for $p$, with a minus sign
+\item $n_0+N_A=p_D+N_D$
+\item Continuity equation: $\frac{\partial n}{\partial x}=\frac1{q}\frac{\partial J}{\partial x}+\left.\frac{\partial n}{\partial x}\right|_{thermal, R-G, light}$. Same for $p$ with first term negative
+\item Built in potential $V_{bi}=\frac1{q}((E_i-E_F)_p -(E_i-E_F)_n)$
+\item Equilibrium in PN junction: $\frac{p_{p0}}{p_{n0}}=e^{eV_{bi}/kT}$; with potential $p_n=p_{n0}e^{eV_A/kT}$ 
+\item Minority carrier diffusion: $\frac{\partial \Delta n_p}{\partial t}=D_n\frac{\partial^2 \Delta n_p}{\partial x^2}-\frac{\Delta n_p}{\tau_n}+G_L$, same for $p_n$
+\item Poisson's eqn: $\nabla^2\phi=-\frac\rho\epsilon=\frac{q}\epsilon((n_0-p_0)-(N_A-N_D))$
+\item Depletion width $W=\sqrt{\frac{2\epsilon}{q}\frac{N_A+N_D}{N_AN_D}V_{bi}}$
+\item Concentration gradient of minority holes $\delta p(x_n)=p_{n0}(e^{eV/kT}-1)e^{-x_n/L_p}$
+\item $J_p(x_n)=\frac{eD_p}{L_p}\delta p$
+\item Schockley: $J=\left(\frac{qD_p}{L_p}p_{n0}+\frac{qD_n}{L_n}n_{p0}\right)(e^{qV_A/kT}-1)=J_0(e^{...}-1)$. $J_0$ is reverse saturation current.
+\item $R=\frac{dV}{dJ}=\frac{kt}{qJ}$
+\item $V_{BR}\propto N_B^{-1}$, where $N_B$ is doping of lightly doped side
+\item Schottky: $e\Phi_B=e\Phi_m-e\chi_s$ ($\chi_s$ is EA of semiconductor)
+\item Current $J-J_s\left(e^{\frac{qV}{kT}}-1\right)$. $E_{max}=\sqrt{\frac{2eN_D}{\epsilon}(V_D-V)}$
+\item $\alpha=I_C/I_E , \beta= I_C/I_B$
+\item Emitter efficiency $\gamma \simeq i-\frac{I_{E_n}}{I_{E_p}}$
+\item Bl
+\item MOSFET $I_{D,sat}=\frac{W}{2L}\mu_nC_{ox}(V_{GS}-V_T)^2$
+\item Saturation discipline: $V_0>Vi-V_T,V_i>V_T,V_0\geq \sqrt{\frac{i_{DS}}{k}}$
+\end{itemize}
+\end{document}
