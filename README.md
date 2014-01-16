@@ -1,4 +1,4 @@
 TeXStuff
 ========
 
-LaTeXified stuff
+LaTeXified stuff for IITB courses
