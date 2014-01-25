@@ -1,0 +1,47 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{hyperref}
+\usepackage[pdftex]{graphicx}
+%\usepackage{physymb}
+%\usepackage{wrapfig}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\newcommand{\Hrule}{\rule{\linewidth}{0.3mm}}
+
+\makeatletter% since there's an at-sign (@) in the command name
+\renewcommand{\@maketitle}{%
+  \parindent=0pt% don't indent paragraphs in the title block
+  \centering
+  {\Large \bfseries\textsc{\@title}}
+  \HRule\par%
+  \textit{\@author \hfill \@date}
+  \par
+}
+\makeatother% resets the meaning of the at-sign (@)
+
+\title{EP 222 formula sheet}
+
+\begin{document}
+\maketitle
+
+\begin{itemize}
+\item Action $\mathcal S$ over a path $\gamma$ is $\mathcal S=\int_\gamma \mathcal L[\{q_i\},\{\dot{q_i}\},t]\mathrm dt$.
+\item Euler-Lagrange equations: $\frac{\mathrm d }{\mathrm dt}\left(\frac{\partial \mathcal L}{\partial \dot q_i}\right)-\frac{\partial \mathcal L}{\partial q_i}=0$.
+\item For a system with no velocity dependant forces, we have $\mathcal L=T-V$. For an electromagnetic system, the corresponding contribution to the potential $V$ is $q\phi -q\mathbf v\cdot\mathbf A$.
+\item Generalized momentum for a coordinate $q_i$ is defined by $p_i=\frac{\partial \mathcal L}{\partial\dot q_i}$. Generalized force is $Q_i=\frac{\mathrm d p_i}{\mathrm dt}$. From D'Alembert's principle, we also get $Q_i=\frac{\mathrm d }{\mathrm dt}\left(\frac{\partial T}{\partial \dot q_i}\right)-\frac{\partial T}{\partial q_i}$.
+\item Hamiltonian equations: $\frac{\partial \mathcal H}{\partial q_i} =-\dot p_i, \frac{\partial \mathcal H}{\partial p_i}=\dot q_i,\frac{\mathrm d \mathcal H}{\mathrm d t}=-\frac{\partial \mathcal L}{\partial t}$. $\mathcal H$ is defined as $\sum\limits_j\frac{\partial L}{\partial \dot q_j}\dot q_j -\mathcal L$. $\mathcal H = T+V$ for velocity independent system. 
+\item Gauge symmetry: If $F$ is a velocity independent field, then $\mathcal L'=\mathcal L+\frac{\mathrm d F}{\mathrm d t}$ is also a valid Lagrangian.
+\item Noether's theorem: \begin{itemize} \item If $q_i$ is a cyclic coordinate, then $p_i$ is conserved. \item For a more general symmetry, in one coordinate, if $\frac{\mathrm d}{\mathrm ds}\mathcal L[Q(s,t),\dot Q(s,t),t]=0$, the conserved quantity is $\left. p\frac{\mathrm d Q}{\mathrm d s}\right|_{s=0}$.\item In case of multiple symmetries, if $\frac{\mathrm d}{\mathrm d s_k}L[Q_1(s_1,s_2,...,t),...,\dot Q_1(s_1,s_2,...,t),...,t]=0\:\: \forall\:\: k$, then the conserved quantities  are $\Lambda_k(q_1,q_2,...,\dot q_1,\dot q_2,...,t)=\sum\limits_j \left. p_j \frac{\mathrm d Q_j}{\mathrm d s_k}\right|_{s_k=0}$
+
+\end{itemize}
+\item Central force: For the potential $V=-\frac\alpha{r}$ , the conic section obtained is $r=\frac{M}{L\cos\theta+\frac\alpha{2M}}$ where $L=\sqrt{E+\frac{\alpha^2}{4M^2}}$ (Compare this with $r=\frac{p}{1+\epsilon \cos\theta}$). For a generalized central force, if $u=\frac1{r}$, $F(u)=\frac{\ell^2}{\mu^2}\left(u^2\frac{\mathrm d^2 u}{\mathrm d\theta^2} + u^3\right)$. The term contributed to $V_{eff}$ by the centrifugal force is $\frac{\ell^2}{2\mu r^2}$.
+\end{itemize}
+
+\end{document}
