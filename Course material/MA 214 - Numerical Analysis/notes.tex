@@ -11,5 +11,15 @@
 
 \begin{document}
 \maketitle
+\section{Framework}
+\begin{enumerate}
+\item A method approximates to $t$ sig digits if $\left|\frac{x-x*}{x}\right|\leq 5\times 10^{-t}$
+\item Relative error $\left|\frac{x-x*}{x}\right|\approx \left|\frac{x-x*}{x*}\right|$
+\item Loss of sig digits is caused by subtraction of nearly equal quantities, or division by small numbers
+\item Condition: Sensitivity to changes in $x$, $\frac{\Delta f/f}{\Delta x /x}\approx \frac{f'(x)x}{f(x)}$
+\item IVT for functions: $f[a,b]\to\mathbb R$, $\exists \xi\in[a,b] ~|~\sum f(x_i)g_i=f(\xi)\sim g_i$
+\item $\alpha_n =\mathcal O(\beta_n)$ if $\alpha_n\leq k\beta_n$ for large $n$
+\item nested multiplication ... less round off error
 
-\end{document}
+\end{enumerate}
+\end{document}	
