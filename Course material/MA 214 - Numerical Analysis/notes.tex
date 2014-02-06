@@ -27,6 +27,28 @@
 \section{Interpolation}
 
 \begin{enumerate}
-\item Weierstrau\ss approximation: $\forall~\epsilon~\exists~P(x)$ such that $|f(x)-p(x)|<\epsilon$
+\item Weierstrau\ss~ approximation: $\forall~\epsilon~\exists~P(x)$ such that $|f(x)-p(x)|<\epsilon$
+\item Lagrange polynomial: $l_k(x)=\prod\limits_{i\neq k}\frac{x-x_i}{x_k-x_i}{}$; $p_n(x)=\sum l_k(x) f(x_k)$
+\item Divided diff: $P_n(x)=P_{n-1}(x)+a_n(x-x_0)(x-x_1)(...)$, $f[x_0,x_1,...x_n]=a_n$
+\item $f[x_0...x_k]=\frac{f[x_1...x_k]-f[x_0]...x_{k-1}]}{x_k-x_0}$
+\item Error in estimating $f(\bar{x})$ is $e_n(\bar{x})=f[x_0,x_1...x_n,\bar{x}]\prod (\bar{x}-x_j)$
+\item Osculatory: If derivatives at $x_0$ come $n$ times, repeat $x_0$, $n$ times and say that $f[x_0,x_0... n\text{ times}]=f^{(n)}(x)$
+\item  $\exists ~\xi\in[x_0,x_k]~|~f[x_0...x_k]=\frac{f^{(k)}(\xi)}{k!}$
+\item hermite (piecewise cubic) interpolation: Same as osculatory, but piecewise
+\item Cubic spline: ?
+\item $f[x_0...x_k,x_{k+1}]=f[x_0...x_{k+1}]+f[x_0,...]$
 \end{enumerate}
+\section{Integration}
+\begin{enumerate}
+\item Error: \begin{enumerate}
+\item  If $\psi_k$ is of one sign in interval, $E(f)=\frac{f^{(k+1)}(\xi)}{(k+1)!}\int \psi_k(x)dx$ where $\psi_k(x)=\prod (x-x_j)$
+\item If the integral is zero,  $E(f)=\frac{f^{(k+2)}\xi)}{(k+2)!}\int \psi_{k+1}(x)dx$
+\end{enumerate}
+\end{enumerate}
+\section{Matrices}
+\subsection{LU factorization}
+To solve $Ax=b$, we first write $A=LU$, where the two matrices are l. triangular and u. triangular respectively. As there are $\infty$ solutions, set diagonal of $L$ to $1$ before proceeding.
+
+Now solve $L(Ux)=b\implies Ly=b$, then solve $Ux=y$.
+
 \end{document}	
