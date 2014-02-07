@@ -44,7 +44,11 @@
 \item  If $\psi_k$ is of one sign in interval, $E(f)=\frac{f^{(k+1)}(\xi)}{(k+1)!}\int \psi_k(x)dx$ where $\psi_k(x)=\prod (x-x_j)$
 \item If the integral is zero,  $E(f)=\frac{f^{(k+2)}\xi)}{(k+2)!}\int \psi_{k+1}(x)dx$
 \end{enumerate}
+\item Midpoint rule $I \approx (b-a)f\left(\frac{a+b}{2}\right)$, error is $f''(\xi)\frac{(b-a)^3}{24}$
+\item Trapezoidal: $\frac12(b-a)(f(a)+f(b)$, error is $-\frac{f''(\xi)(b-a)^3}{12}$
+\item  Simpson: $\frac{b-a}{6}\left(f(a)+4f\left(\frac{a+b}{2}\right)+f(b)\right)$, $E=\frac{f^{4)}(\xi)(b-a)^5}{2^5}$
 \end{enumerate}
+
 \section{Matrices}
 \subsection{LU factorization}
 To solve $Ax=b$, we first write $A=LU$, where the two matrices are l. triangular and u. triangular respectively. As there are $\infty$ solutions, set diagonal of $L$ to $1$ before proceeding.
