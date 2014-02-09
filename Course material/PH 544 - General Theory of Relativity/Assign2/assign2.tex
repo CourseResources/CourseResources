@@ -1,0 +1,43 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{physymb}
+\usepackage{enumerate}
+
+\author{Manish Goregaokar\\120260006}
+\title{Tutorial 2}
+\begin{document}
+\maketitle
+
+\section*{Problem 1}
+\begin{enumerate}[(i)]
+\item $\ud{x^\mu}{\tau}$ is a tensor for all kinds of transformations. $\ud{x'^\mu}{\tau}=\ud{}{\tau}\left(x^\nu\ud{x'^\mu}{x^\nu}\right)=\ud{x'^\mu}{x^\nu}\ud{x^\nu}{\tau}$, and thus we get a contravariant tensor
+\item $\udd{x^\mu}{\tau}$ is also a tensor because it is the derivative of a tensor (Use the property proved in $(i)$ by replacing $x^\mu$ with $\ud{x^\mu}{\tau}$). This tensor is also contravariant.
+\item $\partial_\mu\phi$ is a tensor. $\partial_\mu'\phi=\pd{\phi}{ x_\nu\ud{x_\mu'}{x_\nu}}=\ud{x_\nu}{x_\mu'}\pd{\phi}{x_\nu}=\ud{x_\nu}{x_\mu'}\partial_\mu\phi$, making it a covariant tensor.
+\item This is only a tensor when special relativistic constraints are present. We know that the covariant derivative of the tensor $F$, $F_{\mu\nu;\rho}=\partial_\rho F_{\mu\nu}-\Gamma_{\nu\rho}^{\sigma}A_{\mu\sigma}
+-\Gamma_{\mu\rho}^{\sigma}A_{\nu\sigma}$ is a tensor itself. However, $\Gamma_{\nu\rho}^{\sigma}F_{\mu\sigma},\Gamma_{\mu\rho}^{\sigma}F_{\nu\sigma}$ are not  tensors in the general case as proved in class, so $\partial_\rho F_{\mu\nu}$ is not. However, in special relativity the Christoffel symbols are zero, so the remaining portion of the equation must be a tensor too.
+\end{enumerate}
+\section*{Problem 2}
+We first calculate the velocity and then $\gamma_v$ of the particle in the frame:
+
+\begin{align*}v^2&=\dot{x}^2+\dot{y}^2+\dot{x^2}\\
+&=(a+b\omega\cos\omega t)^2 + (-b\omega\sin\omega t)^2\\
+&= a^2 +b^2\omega^2 + 2ab\omega\cos\omega t\\
+\therefore \gamma_v &= \frac{1}{\sqrt{1-\frac{a^2 +b^2\omega^2 + 2ab\omega\cos\omega t}{c^2}}}
+\end{align*}
+
+From this, we get $w^\mu=\frac{1}{\sqrt{1-\frac{a^2 +b^2\omega^2 + 2ab\omega\cos\omega t}{c^2}}}\begin{bmatrix}
+
+a+b\omega\cos\omega t\\
+-b\omega\sin\omega t\\
+0
+\end{bmatrix}$
+
+\section*{Problem 3}
+$$t=\frac{X}{a}\sinh aT, x\frac{X}{a}\cosh a T$$
+\begin{align*}
+ds^2&=dx^2-dt^2\\
+&= (\frac1{a}\sinh aTdX + \frac{X}{a}\cosh aT dT)^2
+\end{align*}
+
+\end{document}
