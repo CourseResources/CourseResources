@@ -1,0 +1,173 @@
+% LaTeX file for a 1 page document
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{physymb}
+\usepackage{braket}
+\title{EP 307 Assignment 2}
+
+\author{Manish Goregaokar\\120260006}
+
+\begin{document}
+\maketitle
+
+\section*{Problem 1}
+
+\begin{align*}
+\Braket{e_1|e_1}=\Braket{e_2|e_2} &= 2\\
+ \Braket{e_3|e_3} &=4\\
+ \Braket{e_1|e_2} &=i\sqrt{2}\\
+ \Braket{e_1|e_3} &=1+i\\
+ \Braket{e_2|e_3} &=2
+\end{align*}
+
+First, we normalize the states to get:
+
+\begin{align*}
+\Braket{a_1|a_1}=\Braket{a_2|a_2} &= 1\\
+ \Braket{e_3|a_3} &=1\\
+ \Braket{a_1|a_2} &=i\frac1{\sqrt{2}}\\
+ \Braket{a_1|a_3} &=\frac{1+i}{2\sqrt{2}}\\
+ \Braket{a_2|a_3} &=\frac1{\sqrt{2}}
+\end{align*}
+
+\newcommand{\proj}[1]{\hat{p}_{a_{#1}}}
+Taking $\proj i = \Ket{a_i}\Bra{a_i}$ to be the projection operator with respect to $a_i$, by Gram-Schmidt orthogonalization procedure,
+
+\begin{align*}
+&\Ket{\phi_1}=\Ket{a_1}\\
+&\Ket{\phi_2}=\Ket{a_2}-\proj1\Ket{a_2}\\
+&\Ket{\phi_3}=\Ket{a_3}-\proj1\Ket{a_3}-\proj2\Ket{a_3}\\
+\end{align*}
+\renewcommand{\proj}[2]{\Ket{a_{#1}}\Braket{a_{#1}|#2}}
+Thus
+\begin{align*}
+&\Ket{\phi_1}=\Ket{a_1}\\
+&\Ket{\phi_2}=\Ket{a_2}-\proj1{a_2}\\
+&\Ket{\phi_3}=\Ket{a_3}-\proj1{a_3}-\proj2{a_3}\\
+\end{align*}
+and
+\begin{align*}
+&\Ket{\phi_1}=\Ket{a_1}\\
+&\Ket{\phi_2}=\Ket{a_2}+\frac{1}{\sqrt{2}i}\Ket{a_1}\\
+&\Ket{\phi_3}=\Ket{a_3}-\frac{1+i}{2\sqrt{2}}\Ket{a_1}-\frac{1}{\sqrt{2}}\Ket{a_2}\\
+\end{align*}
+
+We can calculate \begin{align*}&\Braket{\phi_1|\phi_1}=1\\
+&\Braket{\phi_2|\phi_2}=1-\frac{1}{2}=\frac12\\ &\Braket{\phi_3|\phi_3}=1+\frac{(1-i)(1+i)}{8}+\frac12=\frac74
+\end{align*}
+and from here we get an orthonormal basis
+
+\begin{align*}
+&\Ket{\psi_1}=\Ket{a_1}\\
+&\Ket{\psi_2}=\sqrt{2}\left(\Ket{a_2}+\frac{1}{\sqrt{2}i}\Ket{a_1}\right)\\
+&\Ket{\psi_3}=\frac{2}{\sqrt{7}}\left(\Ket{a_3}-\frac{1+i}{2\sqrt{2}}\Ket{a_1}-\frac{1}{\sqrt{2}}\Ket{a_2}\right)\\
+\end{align*}
+
+Rewriting in terms of the original vectors
+
+\begin{align*}
+&\Ket{\psi_1}=\frac{1}{\sqrt{2}}\Ket{e_1}\\
+&\Ket{\psi_2}=\Ket{e_2}+\frac{1}{\sqrt{2}i}\Ket{e_1}\\
+&\Ket{\psi_3}=\frac{4}{\sqrt{7}}\left(\Ket{e_3}-\frac{1+i}{2\sqrt{2}}\Ket{e_1}-\frac{1}{\sqrt{2}}\Ket{e_2}\right)\\
+\end{align*}
+
+$\Ket{\psi_1},\Ket{\psi_2},\Ket{\psi_3}$ are our orthonormal basis vectors.
+
+\section*{Problem 2}
+First, we normalize them by taking integrals in $[-1,1]$, and get $c_0=\frac1{\sqrt{2}},c_1=\sqrt{\frac32},c_2=\sqrt{\frac52}$
+
+Applying the orthogonalization process,
+
+\begin{align*}
+\Ket{\phi_1}&=\Ket{\psi_1}\\
+\Ket{\phi_2}&=\Ket{\psi_2}-\Ket{\psi_1}\Braket{\psi_1|\psi_2}\\
+\Ket{\phi_3}&=\Ket{\psi_3}-\Ket{\psi_1}\Braket{\psi_1|\psi_3}-\Ket{\psi_2}\Braket{\psi_2|\psi_3}
+\end{align*}
+
+calculating the inner products, we get
+
+\begin{align*}
+\Ket{\phi_1}&=\Ket{\psi_1}\\
+\Ket{\phi_2}&=\Ket{\psi_2}-0\Ket{\psi_1}\\
+\Ket{\phi_3}&=\Ket{\psi_3}-\frac{\sqrt5}{2}\frac23\Ket{\psi_1}-0\Ket{\psi_2}
+\end{align*}
+
+which evaluates to
+
+\begin{align*}
+\phi_1&=\frac1{\sqrt{2}}\\
+\phi_2&=\sqrt{\frac32}x\\
+\phi_3&=\sqrt{\frac52}\left(x^2-\frac13\right)
+\end{align*}
+\section*{Problem 3}
+
+$$\hat Bg(x)=g(-x)$$
+The operator is linear, since $\hat B(\alpha f(x)+\beta g(x))=\alpha f(-x)+\beta g(-x)=\alpha \hat Bf(x)+\beta\hat B g(x)$
+
+It also is Hermitian, as \begin{align*}\Bra{f}(\hat B\Ket{g})&=\int_{-\infty}^\infty \bar{f}(x)\hat B g(x) dx\\
+&= \int_{-\infty}^\infty \bar{f}(x) g(-x) dx\\
+&= \int_{-\infty}^\infty \bar{f}(-x)g(x)dx\\
+&= \int_{-\infty}^\infty \bar{f}(-x)g(x)dx\\
+&=\int_{-\infty}^\infty \overline{\hat B f(x)}g(x)\\
+&=\Braket{\overline{\hat B} f|g}\\
+\therefore \Braket{f|\hat B g}&=\Braket{\overline{\hat B} f|g}
+\end{align*}
+
+To find eigenvalues, $\hat B g(x)=b g(x)=g(-x)$
+
+Since $b g(x)=g(-x)$ and $b g(-x)=g(x)$, $b=\pm 1$ (neglecting the trivial $b=0$ solution).
+
+Thus, we have eigenvectors:
+\begin{align*}
+&\sum_n a_n x^{2n} & \text{(even function)}\qquad &\text{for eigenvalue $b=1$}\\
+&\sum_n b_n x^{2n+1}& \text{(odd function)}\qquad &\text{for eigenvalue $b=-1$}
+\end{align*} 
+To calculate the commutator,
+\begin{align*}
+ [B,\hat{x}^n]f&=\hat B \hat x^n f(x)-\hat xn \hat B f(x)\\
+ &=\hat B x^n f(x) - \hat x^n f(-x)\\
+ &= (-x)^{n}f(-x)-x^n f(-x)\\
+ &= f(-x)((-x)^{n}-x^n)
+\end{align*}
+
+For this to be zero for all states $f$, $n$ must be even. Thus the commutator is zero only for even $n$
+\section*{Problem 4}
+
+$$\hat \Omega = \Ket{\psi}\Bra{\phi}$$
+
+For it to be Hermitian, $\hat \Omega^\dagger =\Omega$. Applying it to the state $\Ket{\Psi}=\Ket{\psi}+\Ket{\phi}$,
+
+\begin{align*}
+\Ket{\psi}\Braket{\phi|\Psi}&=\Ket{\phi}\Braket{\psi|\Psi}\\
+\Ket{\psi}\Braket{\phi|\psi}+\Ket{\phi}\Braket{\psi|\psi} &= \Ket{\psi}\Braket{\phi|\phi}+\Ket{\phi}\Braket{\psi|\phi}\\
+\left(\Braket{\phi|\psi}-\Braket{\phi|\phi}\right)\Ket{\psi} &= \left(\Braket{\psi|\phi}-\Braket{\psi|\psi}\right)\Ket{\phi}
+\end{align*}
+
+For this to hold, either $\Ket{\psi}=c\ket{\phi}$ or  $\left(\Braket{\phi|\psi}-\Braket{\phi|\phi}\right)=0=\left(\Braket{\psi|\phi}-\Braket{\psi|\psi}\right)$
+
+In the latter case, we get $\Braket{\psi|\psi}=\Braket{\phi|\psi}=\Braket{\phi|\phi}$, which can only happen if the two states are equivalent.
+
+Thus condition for the operator to be hermitian is that $\Ket{\psi}=c\Ket{\phi}$.
+
+For it to be a projection operator, $c=\frac1{\Braket{\phi|\phi}}$
+
+\section{Problem 5}
+
+$$\hat B \psi(x)=\int_{-\infty}^x x' \psi(x')dx'$$
+
+The eigenvalue problem $\hat B \psi =\lambda\psi$ thus becomes $\int_{-\infty}^x x' \psi(x')dx' = \lambda \psi(x)$.
+
+Differentiating with respect to $x$, this is \begin{align*}
+x\psi(x)&=\lambda\psi'(x)\\
+\implies \frac{\psi'(x)}{\psi(x)}&=\frac{x}{\lambda}\\
+\implies \int_{\psi(0)}^\psi\frac{\psi'(x)}{\psi(x)}&=\int_0^x\frac{x}{\lambda}\\
+\implies \log\frac{\psi(x)}{\psi(0)} &= \frac1{\lambda} \frac{x^2}2\\
+\implies \psi(x)=\psi(0)e^{\frac{x^2}{2\lambda}}
+\end{align*}
+
+This is an acceptable (square-integrable) wavefunction only when $\lambda$ is negative.
+\end{document}
+
+\documentclass[12pt]{}
