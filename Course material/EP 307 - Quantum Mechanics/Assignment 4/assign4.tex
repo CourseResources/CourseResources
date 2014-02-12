@@ -74,4 +74,18 @@ So the only common eigenstate is $\Ket{\psi_0}$, provided that it is not a null 
 \therefore [\hat x, \exp\left(\frac{i\hat p a}{\hbar}\right)] &= -a\exp\left(ia\frac{\hat p}{\hbar}\right)
 \end{align*}
 
+\section*{Problem 11}
+The first allowed state (ground state) in the new system will be the first odd wavefunction, i.e. when $n=1$. We need to calculate the probability that the current state ($n=0$) becomes $n=1$ in that region. Note that since the space is halved over a symmetric function, the wavefunctions will be normalized by an extra factor of $\frac1{\sqrt2}$
+
+So, the overlap is 
+\begin{align*}
+\int_0^\infty \frac1{\sqrt2}\psi_0(x)\frac1{\sqrt2}\psi_1(x)
+&= \int_0^\infty \frac1{2} \left(\frac{\alpha}{\sqrt{\pi}}\right)^{\frac12}e^{-\alpha^2x^2/2}H_0(\alpha x)\left(\frac{\alpha}{\sqrt{\pi}2}\right)^\frac12 e^{-\alpha^2x^2/2}H_2(\alpha x)\\
+&= \frac1{2}\frac{\alpha}{\sqrt\pi\sqrt2}\cdot \int_0^\infty e^{-\alpha^2x^2}\cdot 2\alpha x\\
+&=\frac{\alpha^2}{\sqrt{2\pi}} \int_0^\infty e^{-\alpha^2x^2}\cdot  x\\
+&=\frac{\alpha^2}{\sqrt{2\pi}}\frac{1}{2\alpha^2}
+&=\frac{1}{2\sqrt\pi}
+\end{align*}
+
+Thus the probability is $\frac1{\sqrt{2\pi}}$
 \end{document}
