@@ -65,6 +65,13 @@ So the only common eigenstate is $\Ket{\psi_0}$, provided that it is not a null 
 \begin{align*}
 [\hat x, \exp\left(\frac{i\hat p a}{\hbar}\right)]\kpsi &= [\hat x, \exp\left(\frac{i(-i)\hbar\partial_x a}{\hbar}\right)]\kpsi\\
 &=[\hat x, \exp(a\partial_x)]\kpsi\\
-&=  x \sum_i \frac1{i!}a^i\partial^i_x\kpsi - \sum_i\frac1{i!} a^i\partial^i_x (x\kpsi) 
+&=  x \sum_i \frac1{i!}a^i\partial^i_x\kpsi - \sum_i\frac1{i!} a^i\partial^i_x (x\kpsi) \\
+&=  x \sum_i \frac1{i!}a^i\partial^i_x\kpsi - \sum_i\frac1{i!} a^i(x\partial^i_x (\kpsi) + \partial_x^{i-1}i\kpsi)\\
+&= - \sum_i\frac1{i!} a^i \partial_x^{i-1}i\kpsi\\
+&= - \sum_i\frac1{(i-1)!} a^i \partial_x^{i-1}\kpsi\\
+&= - a\exp(a\partial_x)\Ket{\psi}\\
+&= -a\exp\left(ia\frac{\hat p}{\hbar}\right)\kpsi\\
+\therefore [\hat x, \exp\left(\frac{i\hat p a}{\hbar}\right)] &= -a\exp\left(ia\frac{\hat p}{\hbar}\right)
 \end{align*}
+
 \end{document}
