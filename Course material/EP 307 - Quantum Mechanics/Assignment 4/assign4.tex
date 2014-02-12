@@ -1,0 +1,70 @@
+% LaTeX file for a 1 page document
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{physymb}
+\usepackage{braket}
+\title{EP 307 Assignment 4}
+
+\author{Manish Goregaokar\\120260006}
+
+\begin{document}
+\maketitle
+
+\section*{Problem 1}
+$$\prod_{i\neq s}\frac{\hat A-a_i}{a_s-a_i}$$
+
+If $\Ket{a}=\sum c_i\Ket{a_i}$, applying this operator we have \begin{align*}
+\prod_{i\neq s}\frac{\hat A-a_i}{a_s-a_i}\left(\sum c_i\Ket{a_i}\right)&=\sum_j\left(\prod_{i\neq s}\frac{\hat A-a_i}{a_s-a_i}\right)c_j\Ket{a_j}\\
+&=\left(\prod_{i\neq s}\frac{\hat A-a_i}{a_s-a_i}\right)c_s\Ket{a_s}\\&\qquad\text{Since the other terms have numerator cancelling out for $i=j$}\\
+&=\left(\prod_{i\neq s}\frac{a_s-a_i}{a_s-a_i}\right)c_s\Ket{a_s}\\
+&=c_s\Ket{a_s}
+\end{align*}
+Thus the operator is $\frac{\Ket{a_s}\Bra{a_s}}{\Braket{a_s|a_s}}=p_s$ (projection operator)
+\section*{Problem 2}
+\newcommand{\Tr}{\mathrm{Tr}}
+To prove:
+$$\Tr(XY)=\Tr(YX)$$
+
+The trace of an operator can be denoted by $\sum_i \Braket{i|A|i}$, where $\Bra{i},\Ket{i}$ are basis vectors corresponding to the $i$th element being $1$ and the rest $0$. We can also write $A_{ij}=\sum_{ij}A\Ket{j}\Bra{i}$
+
+Thus,
+
+\begin{align*}
+\Tr(AB) 
+&= \sum \Braket{i|AB|i}\\
+&= \sum_i \sum_j\sum_k \sum_l  \Bra{i}A_{jk}\Ket{j}\Bra{k}B_{kl}\Ket{k}\Bra{l}\Ket{i}\\
+&= \sum_i \sum_j\sum_k \sum_l \delta_{ij}A_{jk}B_{kl}\delta_{il}\\
+&=  \sum_i\sum_k  A_{ik}B_{ki}\\
+&=  \sum_k\sum_i  B_{ki}A_{ik}\qquad\text{(Interchanging the sums)}\\
+&= \Tr(BA) \qquad\text{(Following the reverse steps)}
+\end{align*}
+
+\section*{Problem 7}
+
+Applying $\hat{A}=\hat{Q}\hat{C}+\hat{C}\hat{Q}$ to an eigenstate $\Ket{\psi_q}$, we get:
+
+\begin{align*}
+\hat{A}\Ket{\psi_q} &=(\hat{Q}\hat{C}+\hat{C}\hat{Q})\Ket{\psi_q}\\
+&= \hat{Q}\hat{C}\Ket{\psi_q}+\hat{C}\hat{Q}\Ket{\psi_q} \\
+&= \hat{Q}\Ket{\psi_{-q}}+q\hat{C}\Ket{\psi_q}\\
+&= -q\Ket{\psi_{-q}}+q\Ket{\psi_{-q}}\\
+&=0
+\end{align*}
+
+If $\hat A\Ket{\psi_q}=0$, then $\hat A\left(\sum a_q\Ket{\psi_q}\right)=0$. We can say that the eigenvalue of $\hat A$ is 0.
+
+For a state $\Ket{\psi_q}$ to be an eigenstate of $\hat C$, $c\Ket{\psi_q}=\hat C\Ket{\psi_q}=\Ket{\psi_{-q}}$
+
+Since $\Ket{\psi_{-q}},\Ket{\psi_q}$ have different eigenvalues (except when $q=0$), they are linearly independent, and thus the  only possible value of $c$ is 0, which isn't an eigenstate.
+
+So the only common eigenstate is $\Ket{\psi_0}$, provided that it is not a null vector.
+\section*{Problem 9}
+\newcommand{\kpsi}{\Ket{\psi}}
+\begin{align*}
+[\hat x, \exp\left(\frac{i\hat p a}{\hbar}\right)]\kpsi &= [\hat x, \exp\left(\frac{i(-i)\hbar\partial_x a}{\hbar}\right)]\kpsi\\
+&=[\hat x, \exp(a\partial_x)]\kpsi\\
+&=  x \sum_i \frac1{i!}a^i\partial^i_x\kpsi - \sum_i\frac1{i!} a^i\partial^i_x (x\kpsi) 
+\end{align*}
+\end{document}
