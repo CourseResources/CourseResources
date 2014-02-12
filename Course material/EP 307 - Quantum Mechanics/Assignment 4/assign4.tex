@@ -79,13 +79,13 @@ The first allowed state (ground state) in the new system will be the first odd w
 
 So, the overlap is 
 \begin{align*}
-\int_0^\infty \frac1{\sqrt2}\psi_0(x)\frac1{\sqrt2}\psi_1(x)
-&= \int_0^\infty \frac1{2} \left(\frac{\alpha}{\sqrt{\pi}}\right)^{\frac12}e^{-\alpha^2x^2/2}H_0(\alpha x)\left(\frac{\alpha}{\sqrt{\pi}2}\right)^\frac12 e^{-\alpha^2x^2/2}H_2(\alpha x)\\
-&= \frac1{2}\frac{\alpha}{\sqrt\pi\sqrt2}\cdot \int_0^\infty e^{-\alpha^2x^2}\cdot 2\alpha x\\
-&=\frac{\alpha^2}{\sqrt{2\pi}} \int_0^\infty e^{-\alpha^2x^2}\cdot  x\\
-&=\frac{\alpha^2}{\sqrt{2\pi}}\frac{1}{2\alpha^2}
-&=\frac{1}{2\sqrt\pi}
+\int_0^\infty \psi_0(x)\frac1{\sqrt2}\psi_1(x)
+&= \int_0^\infty  \left(\frac{\alpha}{\sqrt{\pi}}\right)^{\frac12}e^{-\alpha^2x^2/2}H_0(\alpha x)\left(\frac{\alpha}{\sqrt{\pi}2}\right)^\frac12 e^{-\alpha^2x^2/2}H_2(\alpha x)\\
+&= \frac{\alpha}{\sqrt\pi\sqrt2}\cdot \int_0^\infty e^{-\alpha^2x^2}\cdot 2\alpha x\\
+&=\frac{2\alpha^2}{\sqrt{2\pi}} \int_0^\infty e^{-\alpha^2x^2}\cdot  x\\
+&=\frac{2\alpha^2}{\sqrt{2\pi}}\frac{1}{2\alpha^2}
+&=\frac{1}{\sqrt{2\pi}}
 \end{align*}
 
-Thus the probability is $\frac1{\sqrt{2\pi}}$
+Thus the probability is $\left(\frac1{\sqrt{2\pi}}\right)^2=\boxed{\frac{1}{2\pi}}$
 \end{document}
