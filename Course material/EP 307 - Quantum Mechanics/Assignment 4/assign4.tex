@@ -27,18 +27,18 @@ Thus the operator is $\frac{\Ket{a_s}\Bra{a_s}}{\Braket{a_s|a_s}}=p_s$ (projecti
 To prove:
 $$\Tr(XY)=\Tr(YX)$$
 
-The trace of an operator can be denoted by $\sum_i \Braket{i|A|i}$, where $\Bra{i},\Ket{i}$ are basis vectors corresponding to the $i$th element being $1$ and the rest $0$. We can also write $A_{ij}=\sum_{ij}A\Ket{j}\Bra{i}$
+The trace of an operator can be denoted by $\sum_i \Braket{i|A|i}$, where $\Bra{i},\Ket{i}$ are basis vectors corresponding to the $i$th element being $1$ and the rest $0$. 
 
 Thus,
 
 \begin{align*}
 \Tr(AB) 
-&= \sum \Braket{i|AB|i}\\
-&= \sum_i \sum_j\sum_k \sum_l  \Bra{i}A_{jk}\Ket{j}\Bra{k}B_{kl}\Ket{k}\Bra{l}\Ket{i}\\
-&= \sum_i \sum_j\sum_k \sum_l \delta_{ij}A_{jk}B_{kl}\delta_{il}\\
-&=  \sum_i\sum_k  A_{ik}B_{ki}\\
-&=  \sum_k\sum_i  B_{ki}A_{ik}\qquad\text{(Interchanging the sums)}\\
-&= \Tr(BA) \qquad\text{(Following the reverse steps)}
+&= \sum_i \Braket{i|AB|i}\\
+&= \sum_i  \Braket{i|AIB|i}\\
+&= \sum_i\sum_j  \Braket{i|A\Ket{j}\Bra{j}B|i}\\
+&= \sum_i\sum_j  \Braket{j|A\Ket{i}\Bra{i}B|j}\\
+&= \sum_j  \Braket{j|BIA|j}\\
+&= \Tr(BA)
 \end{align*}
 
 \section*{Problem 7}
