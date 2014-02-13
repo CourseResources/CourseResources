@@ -5,6 +5,7 @@
 \usepackage{amsthm}
 \usepackage{physymb}
 \usepackage{braket}
+\usepackage{array} 
 \title{EP 307 Assignment 4}
 
 \author{Manish Goregaokar\\120260006}
@@ -88,4 +89,123 @@ So, the overlap is
 \end{align*}
 
 Thus the probability is $\left(\frac1{\sqrt{2\pi}}\right)^2=\boxed{\frac{1}{2\pi}}$
+
+\section*{Problem 13}
+$$\hat{A}=\begin{pmatrix}a&0&0\\0&-a&0\\0&0&-a\end{pmatrix},\quad\hat{B}=\begin{pmatrix}b&0&0\\0&0&ib\\0&ib&0\end{pmatrix}$$
+
+To find eigenvectors of $\hat B$, we can multiply it with the vector $X=\begin{pmatrix}x\\y\\z\end{pmatrix}$. We get $\hat BX=\begin{pmatrix}bx\\ibz\\iby\end{pmatrix}=cX$, so for an eigenvector we either have $c=b,ibz=y,iby=z$ (giving $y=z=0$ for a general $b$, and eigenvector $\begin{pmatrix}1\\0\\0\end{pmatrix}$. If $c\neq b$ we have $x=0$, and $y=\pm z$ with eigenvalues $\pm ib$
+
+Therefore the eigenvectors are:
+
+\begin{enumerate}
+\item $\begin{pmatrix}1\\0\\0\end{pmatrix}$  or $\Ket{1}$ with eigenvalue $b$
+\item $\begin{pmatrix}0\\1\\1\end{pmatrix}$ or $\Ket{2}+\Ket{3}$ with eigenvalue $ib$
+\item $\begin{pmatrix}0\\1\\-1\end{pmatrix}$ or $\Ket{2}-\Ket{3}$ with eigenvalue $-ib$
+\end{enumerate}
+\hfill Ans. (a)
+
+Now,
+$$\hat A\hat B=\left(
+\begin{array}{ccc}
+ a & 0 & 0 \\
+ 0 & -a & 0 \\
+ 0 & 0 & -a \\
+\end{array}
+\right) \left(
+\begin{array}{ccc}
+ b & 0 & 0 \\
+ 0 & 0 & i b \\
+ 0 & i b & 0 \\
+\end{array}
+\right)=\left(
+\begin{array}{ccc}
+ a b & 0 & 0 \\
+ 0 & 0 & 0 \\
+ 0 & 0 & 0 \\
+\end{array}
+\right)$$
+
+and 
+
+$$\hat B\hat A= \left(
+\begin{array}{ccc}
+ b & 0 & 0 \\
+ 0 & 0 & i b \\
+ 0 & i b & 0 \\
+\end{array}
+\right)\left(
+\begin{array}{ccc}
+ a & 0 & 0 \\
+ 0 & -a & 0 \\
+ 0 & 0 & -a \\
+\end{array}
+\right)=\left(
+\begin{array}{ccc}
+ a b & 0 & 0 \\
+ 0 & 0 & 0 \\
+ 0 & 0 & 0 \\
+\end{array}
+\right)$$
+
+As $\hat A\hat B=\hat B\hat A$ in matrix form, the operators commute.
+\hfill Ans. (b)
+
+The eigenkets of $\hat A$ can be easily seen to be $\Ket{1}$ with eigenvalue $a$, and $l\Ket{2}+m\Ket{3}$ with eigenvalue $-a$ ($\forall~l,m$)
+
+We can see that the eigenkets of $B$ are also eigenkets of $A$. They are also orthogonal, after normalizing we have:\\~\\
+
+\begin{tabular}{ >{$}c<{$} >{$}c<{$}  >{$}c<{$} }
+\text{Orthonormal Eigenket} & \text{Eigenvalue with }\hat A & \text{Eigenvalue with }\hat B \\
+\Ket{1} & b & a\\
+\frac{\Ket{2}+\Ket{3}}{\sqrt{2}} & ib & -a\\
+\frac{\Ket{2}-\Ket{3}}{\sqrt{2}} & -ib & -a
+\end{tabular}
+
+
+The eigenkets are not completely determined from the eigenvalues from individual eigenvalues, as the eigenvalue $-a$ has multiplicity 2 and thus has an entire space of eigenkets.
+
+However, knowing the eigenvalues from both operators completely specifies the eigenket, barring a constant.
+\hfill Ans. (c)
+\section*{Problem 16}
+
+$\psi(x)=\frac{1}{\sqrt{2a}}$ in $[-a,a]$. The momentum space function can be found via the fourier transform, \begin{align*}
+\tilde{\psi}(p)&=\frac1{\sqrt{2\pi}}\int_{-\infty}^\infty e^{-ikx}\psi(x)dx\\
+&= \frac1{\sqrt{2\pi}}\int_{-a}^a\frac{1}{\sqrt{2a}} e^{-ikx}dx\\
+&=\frac{i}{2k\sqrt{a\pi}} \left.e^{-ikx}\right|_{-a}^a\\
+&=\frac{i}{2k\sqrt{a\pi}} \left(e^{-ika}-e^{ika}\right)\\
+&=\frac{i}{2k\sqrt{a\pi}} \cdot -2i\sin ka\\
+\therefore \tilde{\psi}(p)&=\frac{\sin \left(\frac{ap}{\hbar} \right)}{p\sqrt{a\pi}}\qquad\text{(Already normalized)}
+\end{align*}
+\hfill Ans.
+
+Now, \begin{align*}\sigma_x&=\sqrt{\Braket{x^2}-\Braket{x}^2}\\
+&=\sqrt{\int \psi^*(x)x^2\psi(x)dx-0}\\
+&= \sqrt{\int_{-a}^a \left(\frac{1}{\sqrt{2 a}}\right)^2 x^2 dx}\\
+&= \frac{a}{\sqrt{3}}
+\end{align*}
+
+And
+
+\begin{align*}\sigma_p&=\sqrt{\Braket{p^2}-\Braket{p}^2}\\
+&=\sqrt{\int \tilde{\psi}^*(p)p^2\tilde{\psi}(p)dp-0}\\
+&= \sqrt{\int_{-\infty}^\infty \left(\frac{\sin \left(\frac{a p}{\hbar }\right)}{\sqrt{\pi } \sqrt{a} p}\right)^2 p^2 dp - 0}\qquad\text{(The wavefunction is odd so the second term vanishes)}\\
+&=\sqrt{\infty}
+\end{align*}
+
+The product of the two uncertantainties is greater than $\frac\hbar2$
+\section*{Problem 17}
+
+$$\psi(x,t)=\frac{1}{\sqrt{2 \pi  \hbar }}\int_{-\infty }^{\infty }  \phi(p)  e^{-\frac{t \left(i p^2\right)}{2 m}+i p x} \, dp$$
+
+\begin{align*}
+\Braket{p} &=\int \psi^*(x,t)(-i\hbar)\frac{\partial}{\partial x}\psi(x,t) dx\\
+&=\int \psi(x,t)\hbar p\psi^*(x,t) dx \qquad\because \pd{}{x}\int_{-\infty }^{\infty }  \phi(p)  e^{-\frac{t \left(i p^2\right)}{2 m}+i p x} = ip \int_{-\infty }^{\infty }  \phi(p)  e^{-\frac{t \left(i p^2\right)}{2 m}+i p x}\\
+&=\int \hbar p \psi^*(x,t)\psi(x,t)dx\\
+\ud{\Braket{p}}{t} &= \int \hbar p \pd{\psi^*(x,t)\psi(x,t)}{t}dx\\
+&= \int\hbar p \pd{\psi^*(x,t)}{t}\psi(x,t)+ \pd{\psi(x,t)}{t}\psi^*(x,t) dx\\
+&=\int \hbar p \psi^*(x,t)\psi(x,t)(\frac{ip^2}{2m}-\frac{ip^2}{2m})\\ &\qquad \because \pd{\psi(x,t)}{t}=\pd{}{t}\int_{-\infty }^{\infty }  \phi(p)  e^{-\frac{t \left(i p^2\right)}{2 m}+i p x}= \frac{-ip^2}{2m}\psi(x,t))\\
+&=0
+\end{align*}
+
+Thus, $\Braket{\hat p}$ is independant of time\hfill Ans. (a)
 \end{document}
