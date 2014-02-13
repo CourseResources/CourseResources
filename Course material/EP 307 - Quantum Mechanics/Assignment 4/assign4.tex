@@ -197,15 +197,39 @@ The product of the two uncertantainties is greater than $\frac\hbar2$
 
 $$\psi(x,t)=\frac{1}{\sqrt{2 \pi  \hbar }}\int_{-\infty }^{\infty }  \phi(p)  e^{-\frac{t \left(i p^2\right)}{2 m}+i p x} \, dp$$
 
+Now, we can rewrite this as $\frac{1}{\sqrt{2 \pi  \hbar }}\int_{-\infty }^{\infty } e^{i p x} \left(\phi(p)  e^{-\frac{t \left(i p^2\right)}{2 m}}\right) \, dp$
+
+which is an inverse fourier transform.
+
+Thus, $\tilde{\psi}(p,t)=\mathcal F(\psi(x,t))=\phi(p)  e^{-\frac{t \left(i p^2\right)}{2 m}}$\\
+Now,
 \begin{align*}
-\Braket{p} &=\int \psi^*(x,t)(-i\hbar)\frac{\partial}{\partial x}\psi(x,t) dx\\
-&=\int \psi(x,t)\hbar p\psi^*(x,t) dx \qquad\because \pd{}{x}\int_{-\infty }^{\infty }  \phi(p)  e^{-\frac{t \left(i p^2\right)}{2 m}+i p x} = ip \int_{-\infty }^{\infty }  \phi(p)  e^{-\frac{t \left(i p^2\right)}{2 m}+i p x}\\
-&=\int \hbar p \psi^*(x,t)\psi(x,t)dx\\
-\ud{\Braket{p}}{t} &= \int \hbar p \pd{\psi^*(x,t)\psi(x,t)}{t}dx\\
-&= \int\hbar p \pd{\psi^*(x,t)}{t}\psi(x,t)+ \pd{\psi(x,t)}{t}\psi^*(x,t) dx\\
-&=\int \hbar p \psi^*(x,t)\psi(x,t)(\frac{ip^2}{2m}-\frac{ip^2}{2m})\\ &\qquad \because \pd{\psi(x,t)}{t}=\pd{}{t}\int_{-\infty }^{\infty }  \phi(p)  e^{-\frac{t \left(i p^2\right)}{2 m}+i p x}= \frac{-ip^2}{2m}\psi(x,t))\\
-&=0
+\Braket{p}&=\int \tilde{\psi}^*(p,t)p\tilde{\psi}(p,t)dp\\
+&=\int \phi^*(p)  e^{\frac{t \left(i p^2\right)}{2 m}}p\phi(p)  e^{-\frac{t \left(i p^2\right)}{2 m}}dp\\
+&= \int \phi^*(p) p \phi(p) dp
 \end{align*}
 
 Thus, $\Braket{\hat p}$ is independant of time\hfill Ans. (a)
+
+Note that $\phi(p)=\tilde{\psi}(p,t=0)$
+Now, 
+
+\begin{align*}
+\Braket{x}= \int \tilde{\psi}^*(p,t)i\hbar\ud{}{p}\tilde{\psi}(p,t)dp\\
+&=\int \phi^*(p)e^{\frac{t \left(i p^2\right)}{2 m}}i\hbar\left(\pd{\phi}{p}e^{-\frac{t \left(i p^2\right)}{2 m}}+\phi(p)\frac{2pt}{2m}e^{-\frac{t \left(i p^2\right)}{2 m}}\right)dp\\
+&=\int\left( \phi^*(p)i\hbar\pd{\phi}{p} + \frac{t}{m}\phi^*(p)p\phi(p)\right) dp\\
+&= \Braket{i\hbar\pd{}{p}}_{t=t_0} + \frac{t}{m}\Braket{p}_{t=t_0}\\
+\therefore \Braket{x}&=\Braket{x}_{t=0} + \frac{t}{m}\Braket{p}_{t=0}
+\end{align*}
+
+Since this is linear, we can shift by $t_0$ to get $\boxed{\Braket{x}=\Braket{x}_{t=t_0} + \frac{t-t_0}{m}\Braket{p}_{t=t_0}}$\hfill Ans. (b)
+\section{Problem 19}
+$$\hat H = \frac{\hat p^2}{2m}+V(x)$$
+
+\begin{align*}
+[H,\hat x]&=\frac{\hat p^2}{2m}x+V(x)x-x\frac{\hat p^2}{2m}+xV(x)\\
+&=-x\frac{\hat p^2}{2m}\\
+[[H,\hat x],x]&=-x\frac{\hat p^2}{2m}x - -x^2\frac{\hat p^2}{2m}\\
+&=\frac{x^2\hat p^2}{2m}
+\end{align*}
 \end{document}
