@@ -1,0 +1,126 @@
+% LaTeX file for a 1 page document
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{physymb}
+\usepackage{braket}
+\usepackage{array} 
+\title{EP 307 Assignment 5}
+
+\author{Manish Goregaokar\\120260006}
+\date{March 6, 2014}
+\begin{document}
+\maketitle
+
+\section*{Problem 1}
+$$\hat H = \frac{\hat p^2}{2m} + \mathcal E\hat x$$
+
+In the momentum space,
+
+$$\hat H\tilde\psi(p) = \frac{p^2}{2m}\psi + \mathcal Ei\hbar\pd{\psi(p)}{p}=E\psi(p)$$
+
+This gives us 
+
+$$\pd{\tilde\psi}{p}=\frac{1}{\mathcal E i \hbar}\left(E-\frac{p^2}{2m}\right)\psi$$
+
+$$\boxed{\therefore \tilde\psi(p) = \exp\left(\frac{Ep-\frac{p^3}{6m}}{\mathcal E i \hbar}\right)}$$
+
+Thus the position space wavefunction is
+
+$$\psi(x)=\int_{-\infty}^\infty \frac1{\sqrt{2\pi}}\exp\left(i\frac{p}{\hbar} x+\frac{Ep-\frac{p^3}{6m}}{\mathcal E i \hbar}\right)dp$$
+
+This integral can only be partially evaluated. One can see by looking at the original equation that the solution involved Airy functions (since the position space equation is of the form $y'' +xy=\lambda y$ with suitable normalization, and these cannot be written out in closed form.
+\section*{Problem 2}
+\begin{enumerate}
+\item \begin{align*}[\hat r_i,\hat L_j] &= [\hat r_i,\epsilon_{jlk}\hat r_k\hat p_l]\\
+&= \epsilon_{jlk} ([\hat r_i,\hat r_k]\hat p_l + \hat r_k[\hat r_i,\hat p_l])\\
+&= \epsilon_{jlk} (\delta_{ik}\hat p_l + \hat r_k \delta_{il}i\hbar)\\
+&= \epsilon_{jli}\hat p_l + \epsilon_{jik}i\hbar\hat r_k)\\
+&= \epsilon_{jli}\hat p_l - \epsilon_{jli}i\hbar\hat r_l)\\
+&= \epsilon_{jli}(\hat p_l - i\hbar\hat r_l)\\
+&= \boxed{\epsilon_{ijl}(\hat p_l - i\hbar\hat r_l)}
+\end{align*}
+\item \begin{align*}
+[\hat p_i,\hat L_j] &= [\hat p_i,\epsilon_{jlk}\hat r_k\hat p_l]\\
+&= \epsilon_{jlk} ([\hat p_i,\hat r_k]\hat p_l + \hat r_k[\hat p_i,\hat p_l])\\
+&=\epsilon_{jlk}(-i\hbar\delta_{ik}p_l +\delta_{il}r_k)\\
+&=\epsilon_{jlk}(-i\hbar\delta_{ik}p_l) +\epsilon_{jlk}(\delta_{il}r_k)\\
+&=\epsilon_{jli}(-i\hbar p_l) +\epsilon_{jik}(r_k)\\
+&=\epsilon_{jil}i\hbar p_l +\epsilon_{jil}(r_l)\\
+&=\boxed{-\epsilon_{ijl}(i\hbar p_l +r_l)}
+\end{align*}
+\item \begin{align*}
+[\mathbf r \cdot \mathbf r,\hat L_i] &= [\hat r_j\hat r_j,\hat L_i]\\
+&=\hat r_j[\hat r_j,L_i] + [\hat r_j,\hat L_i]\hat r_j\\
+&= \hat r_i\epsilon_{jil}(\hat p_l - i\hbar\hat r_l) + \epsilon_{jil}(\hat p_l - i\hbar\hat r_l)\hat r_i\\
+&= \epsilon_{jil}[\hat r_j,\hat p_l- i\hbar\hat r_l]\\
+&=\epsilon_{jil}([\hat r_j,\hat p_l] - i\hbar[r_j,r_l])\\
+&=\epsilon_{jil}(i\hbar\delta_{jl}-0)\\
+&=\boxed{0}
+\end{align*}
+\item \begin{align*}
+[\hat x^2,\hat p_x^2] &= [\hat x \hat x, \hat p_x,\hat p_x]\\
+&= \hat x[\hat x,\hat p_x\hat p_x]+[\hat x,\hat p_x\hat p_x]\hat x\\
+&=\left\{\hat x,[\hat x,\hat p_x\hat p_x] \right\}\\
+&=\left\{\hat x,([\hat x,\hat p_x]\hat p_x +\hat p_x[\hat x,\hat p_x])\right\}\\
+&=\{\hat x, 2i\hbar\hat p_x\}\\
+&=2i\hbar \{\hat x,\hat p_x\}\\
+&= 2i\hbar ([\hat x,\hat p_x]+2\hat p_x\hat x)\\
+&= 2i\hbar(i\hbar + 2\hat p_x\hat x)
+\end{align*}
+\end{enumerate}
+\section*{Problem 6}
+\begin{align*}
+\udd{\Braket{\hat x(t)}}{t}&=\udd{\Braket{\psi | \hat x(t) |\psi}}{t}\\
+&=\Bra{\psi} \udd{x\Ket{\psi}}{t}\\
+&\text{Since an operator can be written as }  U^{\dagger}(t)\hat xU(t)\\
+&= \Bra{\psi}\ud{}{t}\left(\pd{x}{t}+x\frac1{i\hbar} \hat H-\frac1{i\hbar}\hat H x \right)\Ket{\psi}\\
+&=\Bra{\psi}\ud{}{t}\left(\pd{x}{t}+\frac1{i\hbar}[x,\hat H]\right)\Ket{\psi}\\
+&= \Bra{\psi}\left(\pdd{x}{t}+\frac{1}{i\hbar}[\pd{x}{t},\hat H] + \frac{1}{i\hbar}\pd{[x,\hat H]}{t}+\frac{1}{-\hbar^2}[[x,\hat H],\hat H]\right)\Ket{\psi}\\
+&=\Braket{\psi|\frac{1}{-\hbar^2}[[x,\hat H],\hat H]|\psi}\quad  \text{(No explicit time dependence)}\\
+&=\Braket{\psi|\frac{1}{-2m\hbar^2}[[x,\hat p^2],\hat H]|\psi}\quad  \text{(No explicit time dependence)}\\
+&=\Braket{\psi|\frac{1}{-\hbar^2}[i\hbar p ,\hat H]|\psi}\quad  \text{(No explicit time dependence)}\\
+&= \Braket{\psi|0|\psi}\\
+&= 0
+\end{align*}
+Since for a free particle, acceleration is 0, Ehrenfest theorem is proved.
+
+\section*{Problem 13}
+
+When we calculate $\Braket{\hat x}$, we get some time-independant function into $\sin(\frac{E_2-E_1}{\hbar}t)$. To reach the other side, it needs to undergo a rotation of $\frac\pi2$, so the time taken is $
+\frac{\pi\hbar}{2(E_2-E_1)}=\frac{\pi\hbar 2 m L}{2(4-1)\hbar^2\pi^2}$
+
+Thus, the time taken is $\frac{mL}{3\pi\hbar}$
+
+\section*{Problem 16}
+Since the wavefunction must be continuous, but zero everywhere except $\Omega_1,\Omega_2$, it cannot continuously move from one region to another in its entirety.
+
+$\psi_i(r,t)=\phi_i(r)e^{-iEt/\hbar}$ in region $Omega_i$.
+
+$|\psi(r,t)|^2=\frac1{\sqrt{2}}|\psi_1+\psi_2|^2=\frac1{\sqrt{2}}\left(\psi_1^*\psi_1+\psi_2^*\psi_2+\psi_1^*\psi_2+\psi_2^*\psi_1\right)$
+
+The first two terms are time independant, as the $e^{-iEt/\hbar}$ and $\left(e^{-iEt/\hbar}\right)^*$ term cancel out. The last term is zero as the two functions are never simultaneously nonzero.
+
+If they do overlap, the last term is no longer zero. $$\frac{\psi_1^*\psi_2+\psi_2^*\psi_1}{\sqrt{2}}=\frac{\phi_1^*\phi_2 e^{-i(E_2-E_1)t/\hbar} + \phi_2^*\phi_1 e^{-i(E_1-E_2)t/\hbar}}{\sqrt{2}}$$ which is the sum of two periodic functions, and quasiperiodic itself.
+
+\section*{Problem 19}
+
+The wavefunction is separable into cartesian components:
+
+$\psi(x,y,z)=X(x)Y(y)Z(z)$, where $X(x)=\sin(k_1 x), Y(y)=\cos(k_2 y), Z(z)=e^{ik_3z}$. These are all free particles, with momentum $\hbar k_i$. Thus, the net momentum is $\hbar\left(k_1x+k_2y+k_3z\right)$. However, the sin and cos wavefunctions have half the probability as the exponential one, since it when you integrate the former you get only $\int \sin^2$ or $\int \cos^2$, but for the latter you have $\int sin^2+\cos^2$. Thus the relative probabilities are 1:1:2.
+
+\section*{Problem 22}
+\begin{align*}
+\Braket{\vec p_1|\frac{e^{-\mu r}}{r}|\vec p_2} &= \Braket{\vec p_1|I\frac{e^{-\mu r}}{r}I|\vec p_2}\\
+&=\iiint\iiint\Braket{\vec p_1|\vec r}\braket{\vec r|\frac{e^{-\mu r}}{r}|\vec r'}\Braket{\vec r'|\vec p_2} \mathrm d V \mathrm dV'\\
+&= \iiint \iiint e^{-i\vec p_1\cdot\vec r}e^{i\vec p_2\cdot\vec r'}\delta(r-r')\frac{e^{-\mu r}}{r}\mathrm dV\mathrm dV'\\
+&= \iiint \iiint e^{-i\vec p_1\cdot\hat e_r r}e^{i\vec p_1\cdot\hat e_r r'}\delta(r-r')\frac{e^{-\mu r}}{r}\mathrm dV\mathrm dV'\\
+&= (4\pi)^2\int\int e^{-i p_{1,r}r}e^{i p_{2,r} r'}\delta(r-r')\frac{e^{-\mu r}}{r}r^2\mathrm drr'^2\mathrm dr'\\
+&=(4\pi)^2 \int e^{-i p_{1,r} r}e^{ip_{2,r} r}\frac{e^{-\mu r}}{r}r^4\mathrm dr\\
+&= (4\pi)^2\int e^{ir(p_{2,r}-p_{1,r})} \frac{e^{-\mu r}}{r} r^4\mathrm dr\\
+&= (4\pi)^2\int \frac{e^{r(i(p_{2,r}-p_{1,r})-\mu)}}{r}r^4\mathrm dr\\
+&= \frac{6\cdot (4\pi)^2}{\left(\mu +i p_{1,r}-i p_{2,r}\right){}^4}
+\end{align*}
+
+\end{document}
