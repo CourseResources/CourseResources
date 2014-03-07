@@ -33,41 +33,33 @@ $$\psi(x)=\int_{-\infty}^\infty \frac1{\sqrt{2\pi}}\exp\left(i\frac{p}{\hbar} x+
 This integral can only be partially evaluated. One can see by looking at the original equation that the solution involved Airy functions (since the position space equation is of the form $y'' +xy=\lambda y$ with suitable normalization, and these cannot be written out in closed form.
 \section*{Problem 2}
 \begin{enumerate}
-\item \begin{align*}[\hat r_i,\hat L_j] &= [\hat r_i,\epsilon_{jlk}\hat r_k\hat p_l]\\
-&= \epsilon_{jlk} ([\hat r_i,\hat r_k]\hat p_l + \hat r_k[\hat r_i,\hat p_l])\\
-&= \epsilon_{jlk} (\delta_{ik}\hat p_l + \hat r_k \delta_{il}i\hbar)\\
-&= \epsilon_{jli}\hat p_l + \epsilon_{jik}i\hbar\hat r_k)\\
-&= \epsilon_{jli}\hat p_l - \epsilon_{jli}i\hbar\hat r_l)\\
-&= \epsilon_{jli}(\hat p_l - i\hbar\hat r_l)\\
-&= \boxed{\epsilon_{ijl}(\hat p_l - i\hbar\hat r_l)}
+\item \begin{align*}[\hat r_i,\hat L_j] &= [\hat r_i,\epsilon_{jkl}\hat r_k\hat p_l]\\
+&= \epsilon_{jkl} ([\hat r_i,\hat r_k]\hat p_l + \hat r_k[\hat r_i,\hat p_l])\\
+&= \epsilon_{jkl} (\hat r_k \delta_{il}i\hbar)\\
+&= \epsilon_{jki}i\hbar\hat r_k\\
+&= \epsilon_{ijk}i\hbar\hat r_k
 \end{align*}
 \item \begin{align*}
-[\hat p_i,\hat L_j] &= [\hat p_i,\epsilon_{jlk}\hat r_k\hat p_l]\\
-&= \epsilon_{jlk} ([\hat p_i,\hat r_k]\hat p_l + \hat r_k[\hat p_i,\hat p_l])\\
-&=\epsilon_{jlk}(-i\hbar\delta_{ik}p_l +\delta_{il}r_k)\\
-&=\epsilon_{jlk}(-i\hbar\delta_{ik}p_l) +\epsilon_{jlk}(\delta_{il}r_k)\\
-&=\epsilon_{jli}(-i\hbar p_l) +\epsilon_{jik}(r_k)\\
-&=\epsilon_{jil}i\hbar p_l +\epsilon_{jil}(r_l)\\
-&=\boxed{-\epsilon_{ijl}(i\hbar p_l +r_l)}
+[\hat p_i,\hat L_j] &= [\hat p_i,\epsilon_{jkl}\hat r_k\hat p_l]\\
+&= \epsilon_{jkl} ([\hat p_i,\hat r_k]\hat p_l + \hat r_k[\hat p_i,\hat p_l])\\
+&=\epsilon_{jkl}(-i\hbar\delta_{ik}p_l)\\
+&=\epsilon_{jil}(-i\hbar p_l)\\
+&=\epsilon_{ijl}i\hbar p_l
 \end{align*}
 \item \begin{align*}
 [\mathbf r \cdot \mathbf r,\hat L_i] &= [\hat r_j\hat r_j,\hat L_i]\\
 &=\hat r_j[\hat r_j,L_i] + [\hat r_j,\hat L_i]\hat r_j\\
-&= \hat r_i\epsilon_{jil}(\hat p_l - i\hbar\hat r_l) + \epsilon_{jil}(\hat p_l - i\hbar\hat r_l)\hat r_i\\
-&= \epsilon_{jil}[\hat r_j,\hat p_l- i\hbar\hat r_l]\\
-&=\epsilon_{jil}([\hat r_j,\hat p_l] - i\hbar[r_j,r_l])\\
-&=\epsilon_{jil}(i\hbar\delta_{jl}-0)\\
-&=\boxed{0}
+&= \hat r_i\epsilon_{jil}(i\hbar\hat r_l) + \epsilon_{jil}(i\hbar\hat r_l)\hat r_i\\
+&= 2\epsilon_{ijk}i\hbar\hat r_i\hat r_j
 \end{align*}
 \item \begin{align*}
-[\hat x^2,\hat p_x^2] &= [\hat x \hat x, \hat p_x,\hat p_x]\\
+[\hat x^2,\hat p_x^2] &= [\hat x \hat x, \hat p_x\hat p_x]\\
 &= \hat x[\hat x,\hat p_x\hat p_x]+[\hat x,\hat p_x\hat p_x]\hat x\\
 &=\left\{\hat x,[\hat x,\hat p_x\hat p_x] \right\}\\
 &=\left\{\hat x,([\hat x,\hat p_x]\hat p_x +\hat p_x[\hat x,\hat p_x])\right\}\\
 &=\{\hat x, 2i\hbar\hat p_x\}\\
 &=2i\hbar \{\hat x,\hat p_x\}\\
-&= 2i\hbar ([\hat x,\hat p_x]+2\hat p_x\hat x)\\
-&= 2i\hbar(i\hbar + 2\hat p_x\hat x)
+&= 2i\hbar (\hat x\hat p_x +\hat p_x\hat x)
 \end{align*}
 \end{enumerate}
 \section*{Problem 6}
