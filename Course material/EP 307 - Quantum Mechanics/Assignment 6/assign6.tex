@@ -34,10 +34,18 @@ Firstly, we note that $\hat x =\sqrt{\frac{\hbar}{2m\omega}}(\ah+\ad), \hat p =i
 since both $\ad$ will move the state to $\Ket{n+2}$, which is orthogonal to $\Ket{n}$, and $\ah$ will move it to $\Ket{n-2}$ or $0\Ket{0}$ (if $n<2$). In both cases the net result is zero
 
 Thus  $\Braket{n|T|n}=\Braket{n|V|n}$
-
 \section*{Problem 3}
+Such a linear combination would be $\frac1{\sqrt{1+\eta^2}}(\Ket{1}+\eta\Ket{0})$
+\begin{align*}
+\Braket{x} &= \frac1{1+\eta^2}(\Bra{1}+\eta\Bra{0})\left(\sqrt{\frac{\hbar}{2m\omega}}(\ah+\ad)\right)(\Ket{1}+\eta\Ket{0})\\
+&=\sqrt{\frac{\hbar}{2m\omega}}\frac1{1+\eta^2}(\Bra{1}+\eta\Bra{0})\left(\ah\Ket{1}+\eta\ah\Ket{0}+\ad\Ket{1}+\eta\ad\Ket{0}\right)\\
+&=\sqrt{\frac{\hbar}{2m\omega}}\frac1{1+\eta^2}(\Bra{1}+\eta\Bra{0})\left(\Ket{0}+0+\sqrt2\Ket{2}+\eta\Ket{1}\right)\\
+&=\sqrt{\frac{\hbar}{2m\omega}}\frac1{1+\eta^2}(2\eta)
+\end{align*}
+Maximizing $\frac{\eta}{1+\eta^2}$ we get $\eta=1$, and thus the state is $\frac{\Ket{1}+\Ket{0}}{\sqrt2}$
+\section*{Problem 4}
 
-We know that $\hat x =\sqrt{\frac{\hbar}{2m\omega}}(\ah+\ad), \hat p =i\sqrt{\frac{m \omega\hbar}{2}}(\ad-\ah)$, and furthermore $\ah\Ket{\alpha}=\alpha\Ket{\alpha}$. Taking the conjugate, $\Bra{\alpha}\ad=\alpha*\Bra{\alpha}$
+We know that $\hat x =\sqrt{\frac{\hbar}{2m\omega}}(\ah+\ad), \hat p =i\sqrt{\frac{m \omega\hbar}{2}}(\ad-\ah)$, and furthermore $\ah\Ket{\alpha}=\alpha\Ket{\alpha}$. Taking the conjugate, $\Bra{\alpha}\ad=\alpha^*\Bra{\alpha}$
 
 Now,\begin{align*}
 \Braket{x} &= \sqrt{\frac{\hbar}{2m\omega}} \Braket{\alpha|\ah+\ad|\alpha}\\
@@ -65,9 +73,47 @@ Now,\begin{align*}
 &= \frac{\hbar}{2}
 \end{align*}
 
-Thus this system fllows Heisenberg's uncertainty relation.
-\section*{Problem 4}
-\section*{Problem 5}
-\section*{Problem 6}
+Thus this system follows Heisenberg's uncertainty relation.\hfill Ans (a)
 
+\begin{align*}
+\Braket{N} &= \Braket{\alpha|\ad\ah|\alpha}\\
+&=\alpha\Braket{\alpha|\alpha|\alpha}\\
+&=\alpha^2
+\end{align*}
+
+The probability amplitude is $\Braket{n|\alpha}$
+
+\begin{align*}
+\Braket{n|\alpha} &= \Braket{n|e^{-\frac{\left|\alpha\right|^2}{2}}e^{\alpha\ad}|0}\\
+&=e^{-|\alpha|^2/2}\Braket{n|1 + \alpha\ad+\frac12(\alpha\ad)^2 + ...|0}\\
+&=e^{-|\alpha|^2/2}\Bra{n}\left(1 + \alpha\Ket{1}+\frac12(\alpha)^2\sqrt2\Ket{2} +...\right)\\
+&= e^{-|\alpha|^2/2}\frac{\alpha^n}{n!}\sqrt{n!}
+\end{align*}
+
+Thus the probability is $e^{-|\alpha|^2}\frac{\alpha^2n}{n!}$. This is a Poisson distribution, due to the $\frac{\alpha^2n}{n!}$ factor.\hfill Ans (b)
+
+Since the displacement operator is equivalent to $e^{\alpha\ad-\alpha^*\ah}$, its conjugate is $e^{-\alpha\ad+\alpha^*\ah}$ (conjugating all of the components).
+
+Also, $e^{\hat A}e^{-\hat A}=e^{\hat A-\hat A}e^{[\hat A,-\hat A]}1$.
+
+Thus, $DD^\dagger = 1$, for $\hat A=\alpha\ad-\alpha^*\ah$. Thus it is unitary
+\section*{Problem 5}
+\section*{Problem 6} 
+\begin{align*}
+(\vec \sigma\cdot \vec a)(\vec \sigma \cdot \vec b) &= \sigma_ia_i\sigma_jb_j\\
+&=a_ib_j\sigma_i\sigma_j\\
+&=a_ib_j(\delta_{ij}+\epsilon_{ijk}\sigma_k)\\
+&=a_ib_i + \epsilon_{ijk}\sigma_ka_ib_j\\
+&=\vec a \cdot\vec b + \vec \sigma\cdot(\vec a \times \vec b)\qquad\qquad\text{Ans. (a)}
+\end{align*}
+
+\begin{align*}
+e^{i\vec a \cdot \sigma}&=e^{ia\hat n \cdot \sigma}\\
+&=1+ ia\hat n \cdot\hat \sigma + \frac12i^2a^2 (\hat n \cdot\hat \sigma)^2 + ...\\
+\end{align*}
+For even terms, the  $(\hat n \cdot\hat \sigma)^{2n}$ is the identity, since \begin{align*}(\hat n \cdot\hat \sigma)^{2}&=(\hat n \cdot\hat \sigma)(\hat n \cdot\hat \sigma)\\ &= \hat n\cdot\hat n + \sigma\cdot (\hat n \times\hat n)\\&=I\end{align*}. For odd terms, a single $\hat n \cdot\hat \sigma$ remains.
+
+Collecting the even terms we get $\cos (a) I$, and for the odd terms we get $i\sin(a)\hat n \cdot\hat \sigma$.
+
+Thus, the final expression is $I\cos a + i\frac{\vec a \cdot \sigma}{a}\sin a$\hfill Ans. (b)
 \end{document}
