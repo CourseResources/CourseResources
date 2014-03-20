@@ -12,7 +12,30 @@
 \date{March 19, 2014}
 \begin{document}
 \maketitle
-\section*{Problem 2}
+\newcommand{\ad}{\hat a^\dagger}
+\newcommand{\ah}{\hat a}
+\section*{Problem 2}	
+
+To prove: $\Braket{n|T|n}=\Braket{n|V|n}$
+
+Firstly, we note that $\hat x =\sqrt{\frac{\hbar}{2m\omega}}(\ah+\ad), \hat p =i\sqrt{\frac{m \omega\hbar}{2}}(\ad-\ah)$
+
+
+\begin{align*}
+\therefore \Braket{n|T|n} &= \Braket{n|\frac1{2m}\hat p^2|n}\\
+&= -\frac{\omega\hbar}{4} \Braket{n|(\ad -\ah)^2|n}\\
+\text{And}~~ \Braket{n|V|n} &= \Braket{n|\frac12m\omega^2\hat x^2|n}\\
+&= \frac{\omega\hbar}{4} \Braket{n|(\ad +\ah)^2|n}\\
+\therefore \Braket{n|V|n} - \Braket{n|T|n} &=  \frac{\omega\hbar}{4} \Braket{n|(\ad +\ah)^2|n} + \frac{\omega\hbar}{4} \Braket{n|(\ad -\ah)^2|n}\\
+&= \frac{\omega\hbar}{2} \Braket{n|{\ad}^2 +{\ah}^2|n}\\
+&=0
+\end{align*}
+
+since both $\ad$ will move the state to $\Ket{n+2}$, which is orthogonal to $\Ket{n}$, and $\ah$ will move it to $\Ket{n-2}$ or $0\Ket{0}$ (if $n<2$). In both cases the net result is zero
+
+Thus  $\Braket{n|T|n}=\Braket{n|V|n}$
+
+Also,
 \section*{Problem 3}
 \section*{Problem 4}
 \section*{Problem 5}
