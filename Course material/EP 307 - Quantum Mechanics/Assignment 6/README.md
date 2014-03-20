@@ -5,5 +5,5 @@ EP 307 - Quantum Mechanics
 
 **Author:Manish Goregaokar**
 
-Assignment 6
+Assignment 6: More on the harmonic oscillator in the ladder operator picture
 
