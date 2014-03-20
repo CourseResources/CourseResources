@@ -12,7 +12,7 @@
 \date{March 19, 2014}
 \begin{document}
 \maketitle
-\newcommand{\ad}{\hat a^\dagger}
+\newcommand{\ad}{{\hat a^\dagger}}
 \newcommand{\ah}{\hat a}
 \section*{Problem 2}	
 
@@ -35,8 +35,37 @@ since both $\ad$ will move the state to $\Ket{n+2}$, which is orthogonal to $\Ke
 
 Thus  $\Braket{n|T|n}=\Braket{n|V|n}$
 
-Also,
 \section*{Problem 3}
+
+We know that $\hat x =\sqrt{\frac{\hbar}{2m\omega}}(\ah+\ad), \hat p =i\sqrt{\frac{m \omega\hbar}{2}}(\ad-\ah)$, and furthermore $\ah\Ket{\alpha}=\alpha\Ket{\alpha}$. Taking the conjugate, $\Bra{\alpha}\ad=\alpha*\Bra{\alpha}$
+
+Now,\begin{align*}
+\Braket{x} &= \sqrt{\frac{\hbar}{2m\omega}} \Braket{\alpha|\ah+\ad|\alpha}\\
+&= \sqrt{\frac{\hbar}{2m\omega}}(\Braket{\alpha|\ah|\alpha}+ \Braket{\alpha|\ad|\alpha})\\
+&=\sqrt{\frac{\hbar}{2m\omega}}(\Braket{\alpha|\alpha|\alpha}+ \alpha^*\Braket{\alpha|\alpha})\\
+&= \sqrt{\frac{\hbar}{2m\omega}}(\alpha+\alpha^*)\\
+\Braket{x^2} &= \frac{\hbar}{2m\omega} \Braket{\alpha|(\ah+\ad)^2|\alpha}\\
+&=\frac{\hbar}{2m\omega}(\Braket{\alpha|\ah^2|\alpha}+ \Braket{\alpha|\ad^2|\alpha}+\Braket{\alpha|\ah\ad|\alpha}+\Braket{\alpha|\ad\ah|\alpha})\\
+&=\frac{\hbar}{2m\omega}(\Braket{\alpha|\alpha^2|\alpha}+ (\alpha^*)^2\Braket{\alpha|\alpha}+\Braket{\alpha|\ad\ah+[\ah,\ad]|\alpha}+\Braket{\alpha|\ad\ah|\alpha})\\
+&=\frac{\hbar}{2m\omega}(\alpha^2 *{\alpha^*}^2+\Braket{\alpha|\ad\ah+1|\alpha}+\Braket{\alpha|\ad\ah|\alpha})\\
+&=\frac{\hbar}{2m\omega}(\alpha^2+ {\alpha^*}^2+\Braket{\alpha|1|\alpha}+2\Braket{\alpha|\ad\ah|\alpha})\\
+&=\frac{\hbar}{2m\omega}(\alpha^2+ {\alpha^*}^2+1+2\alpha^*\alpha)\\
+\Braket{p} &=i\sqrt{\frac{m \omega\hbar}{2}}\Braket{\alpha|(\ad-\ah)|\alpha}\\
+&=i\sqrt{\frac{m \omega\hbar}{2}}(\alpha^*-\alpha)\\
+\Braket{p^2} &=-\frac{m \omega\hbar}{2}\Braket{\alpha|(\ad-\ah)^2|\alpha}\\
+&=-\frac{m \omega\hbar}{2}({\alpha^*}^2+\alpha^2-1+2\alpha^*\alpha)\\
+\therefore \sigma_x &=\sqrt{\Braket{x^2}-\Braket{x}^2}\\
+&= \sqrt{\frac{\hbar}{2m\omega}\left(\alpha^2+ {\alpha^*}^2+1+2\alpha^*\alpha-(\alpha+\alpha^*)^2\right)}\\
+&= \sqrt{\frac{\hbar}{2m\omega}}\\
+\therefore \sigma_p &=\sqrt{\Braket{p^2}-\Braket{p}^2}\\
+&= \sqrt{-\frac{m \omega\hbar}{2}\left(\alpha^2+ {\alpha^*}^2-1-2\alpha\alpha^*-(\alpha-\alpha^*)^2\right)}\\
+&= \sqrt{-\frac{m \omega\hbar}{2}\left(-1\right)}\\
+&=\sqrt{\frac{m \omega\hbar}{2}}\\
+\therefore \sigma_x\sigma_p &= \sqrt{\frac{\hbar}{2m\omega}}\sqrt{\frac{m \omega\hbar}{2})}\\
+&= \frac{\hbar}{2}
+\end{align*}
+
+Thus this system fllows Heisenberg's uncertainty relation.
 \section*{Problem 4}
 \section*{Problem 5}
 \section*{Problem 6}
