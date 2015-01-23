@@ -1,0 +1,24 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{hyperref}
+\usepackage[pdftex]{graphicx}
+%\usepackage{physymb}
+%\usepackage{wrapfig}
+\usepackage{subcaption}
+\title{PH 304: Assignment 1}
+
+\author{Manish Goregaokar (120260006)}
+\date{\today}
+\begin{document}
+\maketitle
+\section*{Problem 1}
+
+The probability of there not being a single 1 in four rolls is $\frac56\times\frac56\times\frac56\times\frac56 = \frac{625}{1296}$ since we restrict each die roll to the space of 2-6 (5 possibilities) out of its actual space of 6.
+
+The inverse of this, i.e. the probability of there being at least one 1 in four rolls, is  $\boxed{1 - \frac{625}{1296} = \frac{671}{1296} = 0.517747}\hfill \text{Ans (i)}$
+
+When a pair of dice are rolled 24 times, the probability of never getting a double 1 is $\left(\frac{35}{36}\right)^{24}$ since the (equiprobable) sample space for a single roll has 36 candidates, of which  one is a double-1. Thus the probability of having at least one double 1 is $\boxed{1-\left(\frac{35}{36}\right)^{24} = 0.491404}\hfill\text{Ans (ii)}$
+\end{document}
