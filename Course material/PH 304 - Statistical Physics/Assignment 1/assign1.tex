@@ -7,11 +7,12 @@
 \usepackage[pdftex]{graphicx}
 %\usepackage{physymb}
 %\usepackage{wrapfig}
+\usepackage{braket}
 \usepackage{subcaption}
 \title{PH 304: Assignment 1}
 
 \author{Manish Goregaokar (120260006)}
-\date{\today}
+\date{January 25, 2015}
 \begin{document}
 \maketitle
 \section*{Problem 1}
@@ -21,4 +22,110 @@ The probability of there not being a single 1 in four rolls is $\frac56\times\fr
 The inverse of this, i.e. the probability of there being at least one 1 in four rolls, is  $\boxed{1 - \frac{625}{1296} = \frac{671}{1296} = 0.517747}\hfill \text{Ans (i)}$
 
 When a pair of dice are rolled 24 times, the probability of never getting a double 1 is $\left(\frac{35}{36}\right)^{24}$ since the (equiprobable) sample space for a single roll has 36 candidates, of which  one is a double-1. Thus the probability of having at least one double 1 is $\boxed{1-\left(\frac{35}{36}\right)^{24} = 0.491404}\hfill\text{Ans (ii)}$
+\section*{Problem 2}
+Let the probability for a single ameoba to die or have its progeny eventually die out be $d$.
+
+\begin{align*}
+d & = P(\text{amoeba dies}) + P(\text{amoeba lives but descendants die})\\
+&= 1-p + p(P(\text{amoeba or descendants die out})^2)\\
+&= 1-p + pd^2\\
+\therefore d &= 1-p + pd^2\\
+\therefore 0 &=pd^2 -d +1-p\\
+\therefore d &= \frac{1\pm \sqrt{1-4p(1-p)}}{2p}\\
+ &= \frac{1\pm \sqrt{4p^2 - 4p + 1}}{2p}\\
+  &= \frac{1\pm \sqrt{(2p - 1)^2}}{2p}\\
+  &= \frac{1\pm (2p -1)}{2p}
+\end{align*}
+
+For $p<\frac12$, the solution with the $+$ is the only possible one, and thus $d=1$. For $p>\frac12$, it is the solution with the $-$, and we get the probability of death as $\frac{1-p}{p}$.
+
+Thus, the minimum value of $p$ for there to be a non-zero probability of survival ($d<1$) is $\boxed{\frac12}$.
+
+For $p=3/4$, $d=\frac13$, so the probability of survival is $1-d = \boxed{\frac23}$
+\section*{Problem 3}
+Given: $P(\text{twin}) = 0.02, P(\text{identical twin}) = 0.002$
+
+We want $P(\text{identical}|\text{twin})$, which by Bayes' theorem is $$\frac{P(\text{twin}|\text{identical})P(\text{identical})}{P(\text{twin})}=\frac{P(\text{identical})}{P(\text{twin})}=0.1$$
+
+Thus the probability that he was an identical twin is $\boxed{0.1}\hfill \text{Ans.}$
+
+\section*{Problem 4}
+
+The distribution is $P(n|N) = {n\choose N}p^n(1-p)^{N-n}$, and thus the characteristic function is 
+\begin{align*}\tilde{P}(k) &= \Braket{e^{-ikn}}\\
+&= \sum_{n=0}^N e^{-ikn}{n\choose N}p^n(1-p)^{N-n}\\
+&= \sum_{n=0}^N {n\choose N}\left(e^{-ik}\cdot p\right)^n(1-p)^{N-n}\\
+&= (1 - p(e^{-ik}-1))^N
+\end{align*}
+
+$\therefore \boxed{\tilde{P}(k) = (1 - p(e^{-ik}-1))^N}\hfill \text{Ans.}$
+
+Cumulant generating function
+
+\begin{align*}
+Q(k) & = \ln\tilde{P}(k)\\
+&= \ln (1 - p(e^{-ik}-1))^N\\
+&= N \ln (1 - p(e^{-ik}-1))
+\end{align*}
+
+$\therefore \boxed{\ln\tilde{P}(k) = N\ln (1 - p(e^{-ik}-1))}\hfill \text{Ans.}$
+~\\
+If $-ik = y$, then $Q(k) = \ln\tilde{P}(k) = \sum_n \frac{y^n}{n!}\Braket{x^n}_C$. This means that $\left.Q^{(j)}(k)\right|_{k=0} = \Braket{x^j}_C$. Thus the first moment is $Q(0) = 0$, and the second moment is calculated as:
+
+\begin{align*}
+Q'(0) &= \left.\frac{d}{dk}N\ln (1 - p(e^{-ik}-1))\right|_{k=0}\\
+&= \left.\frac{N p e^y}{1-p \left(e^y-1\right)}\right|_{k=0}\\
+&= Np
+\end{align*}
+
+Thus the first two cumulants are $\boxed{0}$ and $\boxed{Np}\hfill$ Ans.
+\section*{Problem 5}
+$$p(x) = \frac1{\sqrt{2\pi\sigma^2}}\exp\left[-\frac{(x-\lambda)^2}{2\sigma^2}\right]$$
+
+\begin{align*}
+\therefore \tilde{p}(k) &= \int_{-\infty}^{\infty} e^{-ikx} \frac1{\sqrt{2\pi\sigma^2}}\exp\left[-\frac{(x-\lambda)^2}{2\sigma^2}\right] dx\\
+&=\int \frac1{\sqrt{2\pi\sigma^2}}\exp\left[-\frac{(x-\lambda)^2 + 2ikx\sigma^2}{2\sigma^2}\right] dx\\
+&=\int \frac1{\sqrt{2\pi\sigma^2}}\exp\left[-\frac{x^2 + \lambda^2 - 2x\lambda + 2ikx\sigma^2}{2\sigma^2}\right] dx\\
+&=\int \frac1{\sqrt{2\pi\sigma^2}}\exp\left[-\frac{x^2 - 2x(\lambda - ik\sigma^2) + \lambda^2 }{2\sigma^2}\right] dx\\
+&=\int \frac1{\sqrt{2\pi\sigma^2}}\exp\left[-\frac{x^2 - 2x(\lambda - ik\sigma^2) + (\lambda - ik\sigma^2)^2 -2\lambda ik\sigma^2 +i^2k^2\sigma^4 }{2\sigma^2}\right] dx\\
+&=\int \frac1{\sqrt{2\pi\sigma^2}}\exp\left[-\frac{(x -(\lambda - ik\sigma^2))^2 -2\lambda ik\sigma^2 +i^2k^2\sigma^4 }{2\sigma^2}\right] dx\\
+&=e^{-\lambda ik + \frac12 i^2k^2\sigma^2}\int \frac1{\sqrt{2\pi\sigma^2}}\exp\left[-\frac{(x -(\lambda - ik\sigma^2))^2}{2\sigma^2}\right] dx\\
+&= e^{-\lambda ik +\frac12 i^2k^2\sigma^2} \cdot 1\\
+&= e^{-\lambda ik +\frac12  i^2k^2\sigma^2}
+\end{align*}
+
+Thus cumulant generating function is just $Q(k) = \ln \tilde{p}(k) = -\lambda ik + \frac12 i^2k^2\sigma^2$. If $-ik = y$, $Q(y) = y + \frac12 y^2\sigma^2$
+
+Thus the cumulants are $\Braket{x^n}_C = (y + \frac12 y^2\sigma^2)^{(n)}$, giving us :
+
+$\boxed{\Braket{x}_C = 1}$, $\boxed{\Braket{x^2}_C = \frac12\sigma^2}$, and for $n>2$, $\boxed{\Braket{x^n}_C = 0}$
+
+\section*{Problem 6}
+
+If we break T into $n$ intervals of $dt$ each ($dt = T/n$), probability of exactly $M$ of these having an event is (where $\lambda$ is the proportionality constant such that individual probability is $\lambda dt$):
+
+$$P(M)_n = {n\choose M}(\lambda dt)^M (1-\lambda dt)^{n-M}$$
+
+Assuming no simultaneous events, we can limit $n$ to infinity:
+\begin{align*}
+\lim_{n\to\infty} P(M)_n &= \lim_{n\to\infty} {n\choose M}(\lambda dt)^M (1-\lambda dt)^{n-M}\\
+&= \lim_{n\to\infty} \frac{n(n-1)....(n-m+2)(n-m+1)}{M!}\left(\lambda \frac{T}{n}\right)^M \left(1-\lambda \frac{T}{n}\right)^{n-M}\\
+&= \lim_{n\to\infty} \frac{n(n-1)....(n-m+2)(n-m+1)}{n^M}\frac{\left(\lambda T\right)^M}{M!} \left(1-\lambda \frac{T}{n}\right)^n\left(1-\lambda \frac{T}{n}\right)^{-M}\\
+&=1\cdot   \frac{\left(\lambda T\right)^M}{M!} \cdot  e^{-\lambda T} \cdot 1\\
+&= \frac{k^M e^{-k}}{M!}\qquad\qquad (k = T\lambda)
+\end{align*}
+
+
+Thus, the probability distribution, in terms of the proportionality constant $\lambda$ is:
+
+$\boxed{P(M) = \frac{(T\lambda)^M e^{-T\lambda}}{M!}}$
+
+The characteristic function can be calculated as  (rewriting $T\lambda$ as $\lambda$)
+\begin{align*}
+\tilde{P}(k) &= \sum_{M=0}^\infty \frac{\lambda^M e^{-\lambda}}{M!}e^{-ikM}\\
+&= e^{-\lambda}\sum_{M=0}^\infty \frac{e^{(ln\lambda-ik) M}}{M!}\\
+&= \exp{e^{ln\lambda-ik}-\lambda}
+\end{align*}
+
+Thus the cumulant generating function is $e^{ln\lambda-ik}-\lambda = \lambda (e^{y} - 1)$, giving us $\boxed{\Braket{x^n}_C = \lambda}$.
 \end{document}
